@@ -1,4 +1,9 @@
-const initialData=[];
+const initialData=[{
+  brand:"",
+  mobile:"",
+  ram:"",
+  storage:""
+}];
 const reducer=(state=initialData,action)=>{
      
       switch(action.type){

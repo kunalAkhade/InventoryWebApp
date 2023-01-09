@@ -12,7 +12,7 @@ function ListItem(props){
    const myState= useSelector((state)=> state.reducer);
   
    const dispatch=useDispatch();
-   dispatch(change())
+   //dispatch(change())
    console.log("Hello",store.getState());
  //listingItems();
    return (

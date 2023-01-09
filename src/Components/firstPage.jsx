@@ -1,6 +1,10 @@
 import React from "react";
+import './firstPage.css';
 import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
+
+export const actionItems={
+};
 function FirstPage(){
  const options=[{
     value:1, label:"4GB"
@@ -35,29 +39,34 @@ const option=[{
      const [mobileName,setMobileName]=useState("");
      const [ramValue,setRamValue]=useState(options[0].label);
      const [storValue,setStorValue]=useState(option[0].label);
+    
+   
 
      function handleStor(event){
+      actionItems.stor=event.target.value;
       setStorValue(event.target.value);
      }
 
      function handleRam(event){
         const ValueRam=event.target.value;
+        actionItems.ram=ValueRam;
         setRamValue(ValueRam);
      }
 
      function handleMobileName(event){
         const Brandvalue=event.target.value;
+        actionItems.mobile=Brandvalue;
         setMobileName(Brandvalue);
      }
 
      function handleBrandName(event){
         const Mobilevalue=event.target.value;
+        actionItems.brand=Mobilevalue;
         setBrandName(Mobilevalue);
      }
     
     const navigate=useNavigate();
     const handleClick=(brand,mobile,ram,stor)=>{
-        console.log(ram)
      navigate('/product',{
      state: {brand:brandName,
           mobile:mobileName,
@@ -65,6 +74,8 @@ const option=[{
           stor:storValue
     }})
     }
+
+   
     
     return (
         <div className="container">
@@ -83,7 +94,7 @@ const option=[{
                 <label className="Storage" for="Storage">Select Storage Size:</label>
     
                    <select name="Storage" id="Storage" onChange={handleStor}>
-                    <option value="64GB"> 64GB</option>
+                    <option value="64GB">64GB</option>
                     <option value="128GB">128GB</option>
                     <option value="256GB">256GB</option>
                     <option value="512GB">512GB</option> 

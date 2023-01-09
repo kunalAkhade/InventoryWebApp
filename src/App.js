@@ -7,13 +7,14 @@ import {
  } from "react-router-dom";
 import SecondPage from './Components/secondPage.jsx';
 function App() {
-  return (
+  return ( 
     <Router>
       <Routes>
         <Route path="/" element={<FirstPage />} />
         <Route path="product" element={<SecondPage/>} />
       </Routes>
     </Router>
+    
   )
 }
 

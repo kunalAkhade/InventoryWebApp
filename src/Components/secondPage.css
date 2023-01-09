@@ -1,0 +1,30 @@
+.inner-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: lightblue;
+  border: 2px solid black;
+}
+
+#Sort{
+  width: 200px;
+  height: 40px;
+  margin-top: 27px;
+  background-color: rgb(250, 243, 243);
+  border: 2px solid black;
+  border-radius: 20px;
+  padding:2px;
+  margin-right: 100px;
+  margin-left: 30px;
+}
+
+.table-head{
+  width: 100%;
+  background-color:burlywood ;
+ 
+}
+td{
+  text-align: center;
+  background-color: white;
+  height: 50px;
+}

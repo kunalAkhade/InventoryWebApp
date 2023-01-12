@@ -2,9 +2,16 @@ import React from "react";
 import './firstPage.css';
 import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
-
-export const actionItems={
-};
+//import actionItems from "./actionItems";
+import item from "./item.js";
+import { useDispatch } from "react-redux";
+import change from "./action.js";
+/*export const actionItems={
+   brand:"",
+   mobile:"",
+   ram:"",
+   stor:""
+};*/
 function FirstPage(){
  const options=[{
     value:1, label:"4GB"
@@ -40,43 +47,55 @@ const option=[{
      const [ramValue,setRamValue]=useState(options[0].label);
      const [storValue,setStorValue]=useState(option[0].label);
     
-   
+     
 
      function handleStor(event){
-      actionItems.stor=event.target.value;
+      
       setStorValue(event.target.value);
      }
 
      function handleRam(event){
         const ValueRam=event.target.value;
-        actionItems.ram=ValueRam;
+        
         setRamValue(ValueRam);
      }
 
      function handleMobileName(event){
         const Brandvalue=event.target.value;
-        actionItems.mobile=Brandvalue;
+        
         setMobileName(Brandvalue);
      }
 
      function handleBrandName(event){
         const Mobilevalue=event.target.value;
-        actionItems.brand=Mobilevalue;
+        
         setBrandName(Mobilevalue);
      }
-    
+     const dispatch=useDispatch();
     const navigate=useNavigate();
     const handleClick=(brand,mobile,ram,stor)=>{
-     navigate('/product',{
-     state: {brand:brandName,
-          mobile:mobileName,
-          ram:ramValue,
-          stor:storValue
-    }})
-    }
+      item.push(brandName);
+      item.push(mobileName);
+      item.push(ramValue);
+      item.push(storValue)
 
-   
-    
+      dispatch({type:"ADD_DATA", payload: {
+         brand:brandName,
+         mobile: mobileName,
+         ram: ramValue,
+         stor: storValue
+      }});
+
+     navigate('/product',{ state: {brand:brandName,
+      mobile:mobileName,
+      ram:ramValue,
+      stor:storValue
+}})
+    }
+   /* function handleClick(){
+
+   navigate('/product',{replace:true});
+    }*/
     return (
         <div className="container">
           <h1>Add Inventory Items</h1>
@@ -99,9 +118,10 @@ const option=[{
                     <option value="256GB">256GB</option>
                     <option value="512GB">512GB</option> 
                   </select>    
-                  <Link to="/product" state={{brand:brandName, mobile:mobileName,ram:ramValue,stor:storValue}} ></Link><button className="Button" onClick={handleClick}>Add</button>
+                 <Link to="/product"></Link> <button className='Button' onClick={handleClick}>Add</button>
         </div>
       );
 }
 
 export default FirstPage;
+export {item} ;

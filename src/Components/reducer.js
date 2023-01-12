@@ -1,18 +1,26 @@
-const initialData=[{
-  brand:"",
-  mobile:"",
-  ram:"",
-  storage:""
-}];
+import item from "./item.js";
+const initialData=[];
 const reducer=(state=initialData,action)=>{
+     console.log("Initial state",initialData)
      
+     
+    
+    
       switch(action.type){
-        case "ADD_DATA" : return {
+       
+        case "ADD_DATA" : 
+        console.log("Previous state",state);
+       return [
           ...state,
-          data:action.payload
-        }
+          action.payload
+        ]
         default: return state;
       }
 }
 
 export default reducer;
+/*
+return [
+  ...state,
+  action.payload
+]*/

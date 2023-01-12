@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import './secondPage.css';
 import { useLocation } from "react-router-dom";
 import ListItem from "./listItem";
+import item from "./item";
 function SecondPage(){
    /* const ComponentExample = () => {
         useEffect( () => {
@@ -16,7 +17,7 @@ function SecondPage(){
             return () => {
                 // componentwillunmount in functional component.
                 // Anything in here is fired on component unmount.
-                document.body.style.display="flex";
+                
             }
         }, []) */
         const ComponentExample = () => {
@@ -27,6 +28,11 @@ function SecondPage(){
                 return () => {
                     // Anything in here is fired on component unmount.
                     document.body.style.display="flex";
+                    const len=item.length
+                    for(var i=0;i<len;i++){
+                      item.pop();
+                    }
+                    
                 }
             }, [])
         }

@@ -1,8 +1,10 @@
-import {actionItems} from './firstPage.jsx'
+import item from "./item.js";
 const change=()=>{
+    console.log("Action Dispatched")
+    console.log("Payload",item)
     return {
     type:'ADD_DATA',
-    payload: actionItems
+    payload: item
     }
 }
 

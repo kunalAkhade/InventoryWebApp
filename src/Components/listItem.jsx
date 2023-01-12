@@ -6,19 +6,21 @@ import { useEffect } from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import change from "./action.js";
 import rootReducer from "./rootReducer.js";
+import reducer from "./reducer.js";
 
 
 function ListItem(props){
-   const myState= useSelector((state)=> state.reducer);
-  
-   const dispatch=useDispatch();
-   //dispatch(change())
-   console.log("Hello",store.getState());
- //listingItems();
+   const count = useSelector((state) => state.reducer)
+         
+   
+   console.log("New State",count)
+   
+   
    return (
    <div className="outer-container">
       <div className="inner-container">
-         <h1 style={{display:"inline"}}>Inventory List</h1>
+         
+         <h1 style={{display:"inline"}} >Inventory List</h1>
          <select name="Sort" id="Sort">
                     <option selected="Order by...">Order by...</option>
                     <option value="128GB">Recent</option>
@@ -35,16 +37,17 @@ function ListItem(props){
                <th>Storage</th>
             </tr>
             
-              {/*.map((params)=>{
+            {
+              count.map((params)=>{
                
-                  return <tr>
-                <td>{params.brand}</td>
-                <td>{params.mobile}</td>
-                <td>{params.ram}</td>
-                <td>{params.storage}</td>
-                </tr> 
-               }
-            )*/}
+               return <tr>
+                  
+             <td>{params.brand}</td>
+             <td>{params.mobile}</td>
+             <td>{params.ram}</td>
+             <td>{params.stor}</td>
+             </tr> 
+            })}
             
          </table>
       </div>
